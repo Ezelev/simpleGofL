@@ -2,9 +2,13 @@
 
 class GameOfLife {
 
+    /*
+    * States
+    */
     public $field;
     public $evolvingTable;
     public $evolveCount = 0;
+    public $evolutionHistory = [];
 
     public function __construct( $test = false, $initialSeed = []) {
 
@@ -13,12 +17,23 @@ class GameOfLife {
 
         if($test) {
 
+            // blinker
+            // $initialSeed = [
+            //     [0,0,0,0,0],
+            //     [0,0,1,0,0],
+            //     [0,0,1,0,0],
+            //     [0,0,1,0,0],
+            //     [0,0,0,0,0]
+            //     ];
+
+            // beacon
             $initialSeed = [
-                [0,0,0,0,0],
-                [0,0,1,0,0],
-                [0,0,1,0,0],
-                [0,0,1,0,0],
-                [0,0,0,0,0]
+                [0,0,0,0,0,0,],
+                [0,1,1,0,0,0],
+                [0,1,1,0,0,0],
+                [0,0,0,1,1,0],
+                [0,0,0,1,1,0],
+                [0,0,0,0,0,0],
                 ];
 
             $this->field = $initialSeed;
@@ -45,20 +60,28 @@ class GameOfLife {
             for($j=0; $j<count($this->evolvingTable[0]); $j++){
                 echo $this->evolvingTable[$i][$j];
             }
-            echo "<br>";
+            // echo "<br>";
         }
     }
 
 
     public function gameOfLife($cycles) {
-        $this->printField();
+        //$this->printField();
+        // adding initial seed to history
+        $this->evolutionHistory[0] = $this->field;
         for($i = 0; $i<= $cycles; $i++) {
-            echo "<br>";
+            // echo "<br>";
             $this->evolve();
-            echo "Evolves number: " . $this->evolveCount;
-            echo "<br>";
-            $this->printEvolveResult();
+            // echo "Evolves number: " . $this->evolveCount;
+            // echo "<br>";
+            $this->evolutionHistory[$i+1] = $this->field;
+            //$this->printEvolveResult();
+
         }
+    }
+
+    public function getEvolutionHistory() {
+        return $this->evolutionHistory;
     }
 
     public function evolve() {
