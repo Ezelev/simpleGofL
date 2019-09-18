@@ -3,7 +3,7 @@
 class GameOfLife {
 
     /*
-    * States
+    * States variables
     */
     public $field;
     public $evolvingTable;
@@ -12,29 +12,29 @@ class GameOfLife {
 
     public function __construct( $test = false, $initialSeed = []) {
 
-        $this->field = $initialSeed;   
+        $this->field = $initialSeed;
         $this->evolvingTable = $initialSeed;
 
         if($test) {
 
             // blinker
-            // $initialSeed = [
-            //     [0,0,0,0,0],
-            //     [0,0,1,0,0],
-            //     [0,0,1,0,0],
-            //     [0,0,1,0,0],
-            //     [0,0,0,0,0]
-            //     ];
+            $initialSeed = [
+                [0,0,0,0,0],
+                [0,0,1,0,0],
+                [0,0,1,0,0],
+                [0,0,1,0,0],
+                [0,0,0,0,0]
+                ];
 
             // beacon
-            $initialSeed = [
-                [0,0,0,0,0,0,],
-                [0,1,1,0,0,0],
-                [0,1,1,0,0,0],
-                [0,0,0,1,1,0],
-                [0,0,0,1,1,0],
-                [0,0,0,0,0,0],
-                ];
+            // $initialSeed = [
+            //     [0,0,0,0,0,0,],
+            //     [0,1,1,0,0,0],
+            //     [0,1,1,0,0,0],
+            //     [0,0,0,1,1,0],
+            //     [0,0,0,1,1,0],
+            //     [0,0,0,0,0,0],
+            //     ];
 
             $this->field = $initialSeed;
             $this->evolvingTable = $initialSeed;
@@ -82,6 +82,7 @@ class GameOfLife {
 
     public function getEvolutionHistory() {
         return $this->evolutionHistory;
+        // return json_encode($this->evolutionHistory);
     }
 
     public function evolve() {
@@ -90,21 +91,21 @@ class GameOfLife {
             for($j=0; $j<count($this->field[0]); $j++){
 
                 $cellNeighbours = $this->getCellNeighbours($i,$j);
-                                
+
                 if(count($cellNeighbours) < 2) {
-                    $this->evolvingTable[$i][$j] = 0;  
+                    $this->evolvingTable[$i][$j] = 0;
                 }
 
                 if(count($cellNeighbours) > 3) {
-                    $this->evolvingTable[$i][$j] = 0;  
+                    $this->evolvingTable[$i][$j] = 0;
                 }
 
                 if(count($cellNeighbours) == 2 && count($cellNeighbours) == 3) {
-                    $this->evolvingTable[$i][$j] = 1;   
-                } 
+                    $this->evolvingTable[$i][$j] = 1;
+                }
 
                 if(count($cellNeighbours) == 3) {
-                    $this->evolvingTable[$i][$j] = 1;  
+                    $this->evolvingTable[$i][$j] = 1;
                 }
 
                 unset($cellNeighbours);
