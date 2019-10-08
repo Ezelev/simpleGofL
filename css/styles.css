@@ -11,3 +11,7 @@ table tr td {
 .active {
   background-color: green;
 }
+
+.table-wrap table {
+  margin:0 auto;
+}
