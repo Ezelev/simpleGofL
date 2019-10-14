@@ -9,8 +9,9 @@ class GameOfLife {
     public $evolvingTable;
     public $evolveCount = 0;
     public $evolutionHistory = [];
+    private $test;
 
-    public function __construct( $test = false, $initialSeed = []) {
+    public function __construct( $test = false, $pattern = "", $initialSeed = []){
 
         $this->field = $initialSeed;
         $this->evolvingTable = $initialSeed;
@@ -18,13 +19,39 @@ class GameOfLife {
         if($test) {
 
             // blinker
-            $initialSeed = [
-                [0,0,0,0,0],
-                [0,0,1,0,0],
-                [0,0,1,0,0],
-                [0,0,1,0,0],
-                [0,0,0,0,0]
+            switch($pattern) {
+
+              case("blinker"):
+              $initialSeed = [
+                  [0,0,0,0,0],
+                  [0,0,1,0,0],
+                  [0,0,1,0,0],
+                  [0,0,1,0,0],
+                  [0,0,0,0,0]
+                  ];
+                  break;
+              case("toad"):
+              $initialSeed = [
+                  [0,0,0,0,0,0],
+                  [0,0,0,1,0,0],
+                  [0,1,0,0,1,0],
+                  [0,1,0,0,1,0],
+                  [0,0,1,0,0,0],
+                  [0,0,0,0,0,0]
+                  ];
+                  break;
+              case("beacon"):
+              $initialSeed = [
+                [0,0,0,0,0,0],
+                [0,1,1,0,0,0],
+                [0,1,0,0,0,0],
+                [0,0,0,0,1,0],
+                [0,0,0,1,1,0],
+                [0,0,0,0,0,0]
                 ];
+                  break;
+            }
+
 
             // beacon
             // $initialSeed = [

@@ -32,7 +32,11 @@ document.addEventListener("DOMContentLoaded", function(event) {
     if (window.XMLHttpRequest) {
       xmlhttp = new XMLHttpRequest();
     }
-    var url = "test.php";
+
+    var patternSelectEl = document.getElementById("pattern-select");
+    var selectedOption = patternSelectEl.options[patternSelectEl.selectedIndex].value;
+
+    var url = "test.php?patttern=" + selectedOption;
     xmlhttp.open("GET", url, false);
     xmlhttp.send(null);
     var response = JSON.parse(xmlhttp.response);

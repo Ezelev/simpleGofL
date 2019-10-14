@@ -1,7 +1,8 @@
 <?php
 require_once("gameoflife.php");
 
-$gol = new GameOfLife(true);
+$pattern = $_GET["pattern"];
+$gol = new GameOfLife(true, $pattern);
 $gol->gameOfLife(5);
 //print_r($gol->getEvolutionHistory());
 ob_clean();
