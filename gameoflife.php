@@ -1,5 +1,5 @@
 <?php
-
+// TODO create pattern/seed factory
 class GameOfLife {
 
     /*
@@ -17,7 +17,6 @@ class GameOfLife {
         $this->evolvingTable = $initialSeed;
 
         if($test) {
-
             // blinker
             switch($pattern) {
 
@@ -49,6 +48,17 @@ class GameOfLife {
                 [0,0,0,1,1,0],
                 [0,0,0,0,0,0]
                 ];
+                  break;
+                case("glider"):
+                $initialSeed = [
+                  [0,0,0,0,0],
+                  [0,0,1,0,0],
+                  [0,0,0,1,0],
+                  [0,1,1,1,0],
+                  [0,0,0,0,0]
+                ];
+                    break;
+              default:
                   break;
             }
 

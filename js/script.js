@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
       }
 
   }
-
+  
   function startEvolve() {
     console.log("form submitted!");
     getEvolutionHistory();
@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     var patternSelectEl = document.getElementById("pattern-select");
     var selectedOption = patternSelectEl.options[patternSelectEl.selectedIndex].value;
 
-    var url = "test.php?patttern=" + selectedOption;
+    var url = "test.php?pattern=" + selectedOption;
     xmlhttp.open("GET", url, false);
     xmlhttp.send(null);
     var response = JSON.parse(xmlhttp.response);
@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
       (function(i){
         setTimeout(function(){
             parseEvolutionStep(response[i]);
-        }, 1000 * (i + 1));
+        }, 250 * (i + 1));
       })(i);
     }
 

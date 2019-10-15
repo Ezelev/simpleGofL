@@ -34,6 +34,7 @@
                     <option value="blinker">Blinker</option>
                     <option value="toad">Toad</option>
                     <option value="beacon">Beacon</option>
+                    <option value="glider">Glider</option>
                 </select>
             </p>
             <button id="btn-create-field" class="w3-button w3-teal">Select</button>
