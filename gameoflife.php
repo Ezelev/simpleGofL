@@ -10,11 +10,15 @@ class GameOfLife {
     public $evolveCount = 0;
     public $evolutionHistory = [];
     private $test;
+    public $baseField;
 
-    public function __construct( $test = false, $pattern = "", $initialSeed = []){
 
-        $this->field = $initialSeed;
-        $this->evolvingTable = $initialSeed;
+    public function __construct( $test = false, $n, $m, $pattern = "", $initialSeed = []){
+
+        //TODO размер basefield парсить из реквеста, а по умолчанию 10 на 10
+        $this->baseField = $this->generateNxM($n, $m);
+        // $this->field = $initialSeed;
+        // $this->evolvingTable = $initialSeed;
 
         if($test) {
             // blinker
@@ -72,11 +76,38 @@ class GameOfLife {
             //     [0,0,0,1,1,0],
             //     [0,0,0,0,0,0],
             //     ];
-
+            $initialSeed = $this->mergePerKey($initialSeed, $this->baseField);
             $this->field = $initialSeed;
             $this->evolvingTable = $initialSeed;
         }
 
+    }
+
+    private function generateNxM($n, $m){
+        $baseField = [];
+
+        for($i = 0; $i < $n; $i++){
+          for($j = 0; $j < $n; $j++){
+            $baseField[$i][$j] = 0;
+          }
+        }
+        return $baseField;
+    }
+
+    private function mergePerKey($array1,$array2)
+    {
+        $mergedArray = $array2;
+
+        foreach ($array1 as $key => $value)
+        {
+            foreach ($value as $key2 => $value2)
+            {
+                $mergedArray[$key][$key2] = $value2;
+            }
+
+        }
+
+        return $mergedArray;
     }
 
     public function printField() {
