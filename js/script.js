@@ -6,17 +6,20 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 
   function createField(){
-      console.log(123);
+      // clear table
+      var tableEl = document.getElementById("table-field");
+      tableEl.innerHTML = "";
+      // setting table dimensions
       var n =   document.getElementById("size-n").value;
       var m =   document.getElementById("size-m").value;
-      console.log("Start createing field with size: " + n + " to " + m );
+      // creating table
       var tableEl = document.getElementById("table-field");
       for(var i = 0; i < n; i++) {
           var tdEl = document.createElement('tr');
           tableEl.appendChild(tdEl);
           for(var j = 0; j < m; j++){
             var trEl = document.createElement('td');
-            trEl.id = "" + i + j;
+            trEl.id = "" + i + "-" + j;
             tdEl.appendChild(trEl);
           }
       }
@@ -58,7 +61,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     for(var i = 0; i < fieldArr.length; i++) {
       for(var j = 0; j < fieldArr[i].length; j++) {
         console.log(fieldArr[i][j]);
-        cell = document.getElementById("" + i + j);
+        cell = document.getElementById("" + i + "-" + j);
         cell.innerHTML = fieldArr[i][j];
         cell.classList.remove("active");
         if(fieldArr[i][j] == 1) {
