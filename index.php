@@ -7,7 +7,7 @@
 </head>
 <title></title>
 <body>
-<div class="w3-container w3-deep-orange">
+<div class="w3-container w3-teal">
   <h1>GofL</h1>
 </div>
 <div class="w3-row">

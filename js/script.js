@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   }
 
   function startEvolve() {
-    console.log("form submitted!");
+    //console.log("form submitted!");
     getEvolutionHistory();
   }
 
@@ -46,6 +46,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     xmlhttp.send(null);
     var response = JSON.parse(xmlhttp.response);
     var field;
+
     for(var i = 0; i < response.length; i++){
       (function(i){
         setTimeout(function(){
@@ -67,7 +68,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
         if(fieldArr[i][j] == 1) {
           cell.classList.add("active");
         }
-
       }
     }
   }
