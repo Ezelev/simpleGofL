@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function(event) {
 
 
-  document.getElementById("btn-create-field").addEventListener("click", createField);
+//  document.getElementById("btn-create-field").addEventListener("click", createField);
   document.getElementById("evolve-btn").addEventListener("click", startEvolve);
 
 
@@ -28,6 +28,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
   function startEvolve() {
     //console.log("form submitted!");
+    createField();
     getEvolutionHistory();
   }
 

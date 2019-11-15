@@ -23,7 +23,7 @@
               <label for="size-n">M:</label>
               <input id="size-m" class="w3-input w3-border" type="number" name="size-n" value=5>
             </p>
-            <button id="btn-create-field" class="w3-button w3-teal">Create</button>
+            <!-- <button id="btn-create-field" class="w3-button w3-teal">Create</button> -->
       </div>
     </div>
     <div class="w3-col m12">
@@ -37,7 +37,11 @@
                     <option value="glider">Glider</option>
                 </select>
             </p>
-            <button id="btn-create-field" class="w3-button w3-teal">Select</button>
+      </div>
+    </div>
+    <div class="w3-col m12">
+      <div class="w3-container fieldwrap  w3-border w3-center">
+            <button id="evolve-btn" class="w3-button w3-teal evolve-btn">Start</button>
       </div>
     </div>
   </div>
@@ -53,6 +57,6 @@
 
 	</div>
 
-	<button id="evolve-btn" class="evolve-btn">Start</button>
+	<!-- <button id="evolve-btn" class="evolve-btn">Start</button> -->
 </body>
 </html>
