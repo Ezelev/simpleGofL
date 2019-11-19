@@ -46,15 +46,19 @@ document.addEventListener("DOMContentLoaded", function(event) {
     xmlhttp.open("GET", url, false);
     xmlhttp.send(null);
     var response = JSON.parse(xmlhttp.response);
-    var field;
-
-    for(var i = 0; i < response.length; i++){
-      (function(i){
-        setTimeout(function(){
-            parseEvolutionStep(response[i]);
-        }, 250 * (i + 1));
-      })(i);
+    if(response.status == "1"){
+      var field;
+      for(var i = 0; i < response.body.length; i++){
+        (function(i){
+          setTimeout(function(){
+              parseEvolutionStep(response.body[i]);
+          }, 250 * (i + 1));
+        })(i);
+      }
+    } else {
+      alert(response.message);
     }
+
 
   }
 
