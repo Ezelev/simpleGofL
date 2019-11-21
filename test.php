@@ -18,7 +18,7 @@ if($n && $m && $pattern){
   // echo "<pre>";
   // print_r($gol->baseField);
   // echo "</pre>";
-  $gol->gameOfLife(100);
+  $gol->gameOfLife(5);
   //print_r($gol->getEvolutionHistory());
   ob_clean();
   // echo "<pre>";

@@ -66,16 +66,6 @@ class GameOfLife {
                   break;
             }
 
-
-            // beacon
-            // $initialSeed = [
-            //     [0,0,0,0,0,0,],
-            //     [0,1,1,0,0,0],
-            //     [0,1,1,0,0,0],
-            //     [0,0,0,1,1,0],
-            //     [0,0,0,1,1,0],
-            //     [0,0,0,0,0,0],
-            //     ];
             $initialSeed = $this->mergePerKey($initialSeed, $this->baseField);
             $this->field = $initialSeed;
             $this->evolvingTable = $initialSeed;
@@ -87,7 +77,7 @@ class GameOfLife {
         $baseField = [];
 
         for($i = 0; $i < $n; $i++){
-          for($j = 0; $j < $n; $j++){
+          for($j = 0; $j < $m; $j++){
             $baseField[$i][$j] = 0;
           }
         }
