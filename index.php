@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
-<head>
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" type="text/css" href="/css/styles.css">
-<script src="/js/script.js"></script>
-</head>
-<title></title>
+  <head>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+    <script data-main="/js/app.js" src="/js/require.js"></script>
+  </head>
+  <title></title>
 <body>
 <div class="w3-container w3-teal">
   <h1>GofL</h1>
@@ -23,7 +23,6 @@
               <label for="size-n">M:</label>
               <input id="size-m" class="w3-input w3-border" type="number" name="size-n" value=5>
             </p>
-            <!-- <button id="btn-create-field" class="w3-button w3-teal">Create</button> -->
       </div>
     </div>
     <div class="w3-col m12">
@@ -50,13 +49,7 @@
     </table>
   </div>
 </div>
-
-
-
 	<div class="fieldwrap">
-
 	</div>
-
-	<!-- <button id="evolve-btn" class="evolve-btn">Start</button> -->
 </body>
 </html>
