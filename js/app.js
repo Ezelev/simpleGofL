@@ -7,7 +7,7 @@ requirejs.config({
 // Start the main app logic.
 requirejs(['app/test','app/main'],
 function  (test, main) {
-  //  Test.testLoad();
-    Test.DomManipulate();
+
     MainJS.init();
+
 });

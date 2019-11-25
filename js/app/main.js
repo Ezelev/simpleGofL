@@ -1,12 +1,6 @@
 const MainJS = (function() {
 
-  const init = () => {
-    document.addEventListener("DOMContentLoaded", function(event) {
-    //  document.getElementById("btn-create-field").addEventListener("click", createField);
-    document.getElementById("evolve-btn").addEventListener("click", startEvolve);
-
-
-      function createField(){
+      function _createField(){
           // clear table
           var tableEl = document.getElementById("table-field");
           tableEl.innerHTML = "";
@@ -27,13 +21,13 @@ const MainJS = (function() {
 
       }
 
-      function startEvolve() {
+      function _startEvolve() {
         //console.log("form submitted!");
-        createField();
-        getEvolutionHistory();
+        _createField();
+        _getEvolutionHistory();
       }
 
-      function getEvolutionHistory() {
+      function _getEvolutionHistory() {
         if (window.XMLHttpRequest) {
           xmlhttp = new XMLHttpRequest();
         }
@@ -52,7 +46,7 @@ const MainJS = (function() {
           for(var i = 0; i < response.body.length; i++){
             (function(i){
               setTimeout(function(){
-                  parseEvolutionStep(response.body[i]);
+                  _parseEvolutionStep(response.body[i]);
               }, 250 * (i + 1));
             })(i);
           }
@@ -61,7 +55,7 @@ const MainJS = (function() {
         }
       }
 
-      function parseEvolutionStep(fieldArr){
+      function _parseEvolutionStep(fieldArr){
         var cell;
         for(var i = 0; i < fieldArr.length; i++) {
           for(var j = 0; j < fieldArr[i].length; j++) {
@@ -76,8 +70,9 @@ const MainJS = (function() {
         }
       }
 
-    });
-  };
+  const init = () => {
+    document.getElementById("evolve-btn").addEventListener("click", _startEvolve);
+  }
 
   return {
     init,

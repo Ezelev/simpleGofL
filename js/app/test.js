@@ -2,21 +2,14 @@ const Test = (function() {
 
   const testLoad = () => {
     alert(123);
+    document.addEventListener("DOMContentLoaded", function(event) {
+        alert("page loaded!!!");
+    });
   };
 
-  const DomManipulate = function(){
 
-   document.addEventListener("DOMContentLoaded",()=>{
-
-      this.element = document.querySelector("body");
-      console.log(this.element);
-
-   });
-
-};
 
   return {
     testLoad,
-    DomManipulate,
   }
 })();
