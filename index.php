@@ -34,7 +34,16 @@
                     <option value="toad">Toad</option>
                     <option value="beacon">Beacon</option>
                     <option value="glider">Glider</option>
+                    <option value="acorn">Acorn</option>
                 </select>
+            </p>
+      </div>
+    </div>
+    <div class="w3-col m12">
+      <div class="w3-container fieldwrap  w3-border w3-center">
+            <p>Enter number of cycles:</p>
+            <p>
+              <input id="cycles-count" class="w3-input w3-border" type="number" name="cycles-count" value=10>
             </p>
       </div>
     </div>

@@ -13,12 +13,18 @@ if(isset($_GET["pattern"]) && !empty($_GET["pattern"])){
    $pattern = $_GET["pattern"];
 }
 
+if(isset($_GET["cyclesCount"]) && !empty($_GET["cyclesCount"])){
+  $cyclesCount = $_GET["cyclesCount"];
+} else {
+  $cyclesCount = 10;
+}
+
 if($n && $m && $pattern){
   $gol = new GameOfLife(true, $n, $m, $pattern);
   // echo "<pre>";
   // print_r($gol->baseField);
   // echo "</pre>";
-  $gol->gameOfLife(5);
+  $gol->gameOfLife($cyclesCount);
   //print_r($gol->getEvolutionHistory());
   ob_clean();
   // echo "<pre>";

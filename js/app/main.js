@@ -34,10 +34,11 @@ const MainJS = (function() {
 
         var nSize = document.getElementById("size-n").value;
         var mSize = document.getElementById("size-m").value;
+        var cyclesCount = document.getElementById("cycles-count").value;
         var patternSelectEl = document.getElementById("pattern-select");
         var selectedOption = patternSelectEl.options[patternSelectEl.selectedIndex].value;
 
-        var url = "test.php?pattern=" + selectedOption + "&nSize=" + nSize + "&mSize=" + mSize;
+        var url = "test.php?pattern=" + selectedOption + "&nSize=" + nSize + "&mSize=" + mSize + "&cyclesCount=" + cyclesCount;
         xmlhttp.open("GET", url, false);
         xmlhttp.send(null);
         var response = JSON.parse(xmlhttp.response);
@@ -59,7 +60,7 @@ const MainJS = (function() {
         var cell;
         for(var i = 0; i < fieldArr.length; i++) {
           for(var j = 0; j < fieldArr[i].length; j++) {
-            console.log(fieldArr[i][j]);
+            // console.log(fieldArr[i][j]);
             cell = document.getElementById("" + i + "-" + j);
             cell.innerHTML = fieldArr[i][j];
             cell.classList.remove("active");
