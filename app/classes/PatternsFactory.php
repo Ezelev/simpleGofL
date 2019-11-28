@@ -2,9 +2,23 @@
 
 class PatternsFactory {
 
-  public function createPattern(){
-    return new Pattern();
+  private $availablePatterns;
+
+  public function __construct(){
+     getAvailabelPatterns();
   }
+
+  private function getAvailabelPatterns(){
+    foreach(glob('../patterns/*.php') as $patternName){
+       $availablePatterns[] = $patternName;
+    }
+  }
+
+  public function createPattern($patternName){
+
+    if(isset($availablePatterns[$patternName])){}
+        return new $patternName();
+    }
 
 }
 

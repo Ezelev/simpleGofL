@@ -1,18 +1,17 @@
 <?php
 
-class Blinker implements PatternsInterface {
+class Blinker extends Pattern {
 
-  public $matrix;
-  public $direction;
+  private $direction;
 
   public function create(){
       $this->direction = "horizontal"; // default
       $this->matrix = [
-          [0,0,0,0,0],
-          [0,0,1,0,0],
-          [0,0,1,0,0],
-          [0,0,1,0,0],
-          [0,0,0,0,0]
+          [0,0,0],
+          [0,1,0],
+          [0,1,0],
+          [0,1,0],
+          [0,0,0]
       ];
   }
 
