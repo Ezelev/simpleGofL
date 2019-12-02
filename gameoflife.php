@@ -101,7 +101,7 @@ class GameOfLife {
         {
             foreach ($value as $key2 => $value2)
             {
-                $mergedArray[$key+20][$key2+20] = $value2;
+                $mergedArray[$key][$key2] = $value2;
             }
 
         }
