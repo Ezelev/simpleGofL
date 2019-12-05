@@ -21,16 +21,17 @@ if(isset($_GET["cyclesCount"]) && !empty($_GET["cyclesCount"])){
 
 if($n && $m && $pattern){
   $gol = new GameOfLife(true, $n, $m, $pattern);
-  // echo "<pre>";
-  // print_r($gol->baseField);
-  // echo "</pre>";
+//
+  $start = microtime(true);
+//
   $gol->gameOfLife($cyclesCount);
-  //print_r($gol->getEvolutionHistory());
+//
   ob_clean();
-  // echo "<pre>";
+
   $responseBody = $gol->getEvolutionHistory();
-  $response = ["status" => "1", "message" => "success", "body" => $responseBody];
-  //print_r($response);
+  $time_elapsed_secs = microtime(true) - $start;
+  $response = ["status" => "1", "message" => "success", "evolution_exec_time"=> $time_elapsed_secs,"body" => $responseBody];
+
   echo json_encode($response);
   die();
 } else {
