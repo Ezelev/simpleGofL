@@ -27,6 +27,48 @@ const MainJS = (function() {
         _getEvolutionHistory();
       }
 
+      function _startEvolveAjax(){
+        _createField();
+        _getEvolutionHistoryAjax();
+      }
+
+      function _getEvolutionHistoryAjax() {
+        if (window.XMLHttpRequest) {
+          xmlhttp = new XMLHttpRequest();
+        }
+        var step = 0;
+        var nSize = document.getElementById("size-n").value;
+        var mSize = document.getElementById("size-m").value;
+        var cyclesCount = document.getElementById("cycles-count").value;
+        var patternSelectEl = document.getElementById("pattern-select");
+        var selectedOption = patternSelectEl.options[patternSelectEl.selectedIndex].value;
+
+        var url = "test.php?pattern=" + selectedOption + "&nSize=" + nSize + "&mSize=" + mSize + "&cyclesCount=" + cyclesCount;
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", url, true); // async=true
+        xhr.onload = function (e) {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+              var response = JSON.parse(xhr.response);
+              console.log(response);
+              return false;
+              if(response.status == "1"){
+                console.log("success");
+                var field;
+                for(var i = 0; i < response.body.length; i++){
+                  (function(i){
+                    setTimeout(function(){
+                        _parseEvolutionStep(response.body[i]);
+                    }, 250 * (i + 1));
+                  })(i);
+                }
+              } else {
+                alert(response.message);
+              }
+            }
+        };
+        xhr.send(null);
+      }
+
       function _getEvolutionHistory() {
         if (window.XMLHttpRequest) {
           xmlhttp = new XMLHttpRequest();
@@ -45,15 +87,17 @@ const MainJS = (function() {
             if (xhr.readyState == 4 && xhr.status == 200) {
               var response = JSON.parse(xhr.response);
               console.log(response);
+              //return false;
               if(response.status == "1"){
                 console.log("success");
                 var field;
                 for(var i = 0; i < response.body.length; i++){
-                  (function(i){
-                    setTimeout(function(){
-                        _parseEvolutionStep(response.body[i]);
-                    }, 250 * (i + 1));
-                  })(i);
+                  _parseEvolutionStep(response.body[i]);
+                  // (function(i){
+                  //   setTimeout(function(){
+                  //       _parseEvolutionStep(response.body[i]);
+                  //   }, 250 * (i + 1));
+                  // })(i);
                 }
               } else {
                 alert(response.message);
@@ -61,27 +105,9 @@ const MainJS = (function() {
             }
         };
         xhr.send(null);
-        // xmlhttp.open("GET", url, false);
-        // xmlhttp.send(null);
-        // var response = JSON.parse(xmlhttp.response);
-        // console.log(response);
-        // if(response.status == "1"){
-        //   console.log("success");
-        //   var field;
-        //   for(var i = 0; i < response.body.length; i++){
-        //     (function(i){
-        //       setTimeout(function(){
-        //           _parseEvolutionStep(response.body[i]);
-        //       }, 250 * (i + 1));
-        //     })(i);
-        //   }
-        // } else {
-        //   alert(response.message);
-        // }
       }
 
       function _parseEvolutionStep(fieldArr){
-        console.log(123123);
         var cell;
         for(var i = 0; i < fieldArr.length; i++) {
           for(var j = 0; j < fieldArr[i].length; j++) {
@@ -98,6 +124,7 @@ const MainJS = (function() {
 
   const init = () => {
     document.getElementById("evolve-btn").addEventListener("click", _startEvolve);
+    document.getElementById("evolve-btn-ajax").addEventListener("click", _startEvolveAjax);
   }
 
   return {

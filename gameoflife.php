@@ -136,7 +136,7 @@ class GameOfLife {
         //$this->printField();
         // adding initial seed to history
         $this->evolutionHistory[0] = $this->field;
-        for($i = 0; $i<= $cycles; $i++) {
+        for($i = 0; $i < $cycles; $i++) {
             // echo "<br>";
             $this->evolve();
             // echo "Evolves number: " . $this->evolveCount;

@@ -50,7 +50,14 @@
     <div class="w3-col m12">
       <div class="w3-container fieldwrap  w3-border w3-center">
             <button id="evolve-btn" class="w3-button w3-teal evolve-btn">Start</button>
+        <p><i>All steps computed on server side at once. Then render.</i></p>
       </div>
+    </div>
+    <div class="w3-col m12">
+      <div class="w3-container fieldwrap  w3-border w3-center">
+            <button id="evolve-btn-ajax" class="w3-button w3-teal evolve-btn">Start (test)</button>
+            <p><i>Feature in progress. Launches evolution in ajax mode. Steps are executing and rendering one by one.</i></p>
+    </div>
     </div>
   </div>
   <div class="w3-col m8 l9 w3-border table-wrap" style="padding-top: 20px;padding-bottom: 20px;text-align: center;">
