@@ -23,7 +23,7 @@ const MainJS = (function() {
 
       function _startEvolve() {
         //console.log("form submitted!");
-        _createField();
+        // _createField();
         _getEvolutionHistory();
       }
 
@@ -93,11 +93,11 @@ const MainJS = (function() {
                 var field;
                 for(var i = 0; i < response.body.length; i++){
                   _parseEvolutionStep(response.body[i]);
-                  // (function(i){
-                  //   setTimeout(function(){
-                  //       _parseEvolutionStep(response.body[i]);
-                  //   }, 250 * (i + 1));
-                  // })(i);
+                  (function(i){
+                    setTimeout(function(){
+                        _parseEvolutionStep(response.body[i]);
+                    }, 100 * (i + 1));
+                  })(i);
                 }
               } else {
                 alert(response.message);
@@ -107,18 +107,55 @@ const MainJS = (function() {
         xhr.send(null);
       }
 
+      // function _parseEvolutionStep(fieldArr){
+      //   var cell;
+      //   for(var i = 0; i < fieldArr.length; i++) {
+      //     for(var j = 0; j < fieldArr[i].length; j++) {
+      //       // console.log(fieldArr[i][j]);
+      //       cell = document.getElementById("" + i + "-" + j);
+      //       cell.innerHTML = fieldArr[i][j];
+      //       cell.classList.remove("active");
+      //       if(fieldArr[i][j] == 1) {
+      //         cell.classList.add("active");
+      //       }
+      //     }
+      //   }
+      // }
+
       function _parseEvolutionStep(fieldArr){
-        var cell;
+        var canvas = document.getElementById('canvas');
+        var x;
+        var y;
         for(var i = 0; i < fieldArr.length; i++) {
           for(var j = 0; j < fieldArr[i].length; j++) {
             // console.log(fieldArr[i][j]);
-            cell = document.getElementById("" + i + "-" + j);
-            cell.innerHTML = fieldArr[i][j];
-            cell.classList.remove("active");
+            var x = (i * 10);
+            var y = (j * 10);
+            _colorCell(canvas, x, y, "white");
             if(fieldArr[i][j] == 1) {
-              cell.classList.add("active");
+                _colorCell(canvas, x, y);
             }
           }
+        }
+      }
+
+      function _colorCell(canvas, x,y, color) {
+        // console.log("color is " + color);
+        // console.log(x);
+        // console.log(y);
+        if (canvas.getContext) {
+          var context = canvas.getContext('2d');
+          if(color == "white"){
+             // console.log("colro is WHITE!");
+             context.fillStyle = "#ffffff";
+            context.fillRect(x+2, y+2, 8, 8);
+          } else {
+             context.fillStyle = "#000000";
+             // console.log("colro is BLACK!");
+            context.fillRect(x+2, y+2, 8, 8);
+          }
+
+
         }
       }
 
