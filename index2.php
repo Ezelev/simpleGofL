@@ -105,8 +105,8 @@
 
         }
 
-        context.strokeStyle='grey';
-        context.stroke();
+        // context.strokeStyle='grey';
+        // context.stroke();
 
     }
   }

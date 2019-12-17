@@ -107,28 +107,12 @@ const MainJS = (function() {
         xhr.send(null);
       }
 
-      // function _parseEvolutionStep(fieldArr){
-      //   var cell;
-      //   for(var i = 0; i < fieldArr.length; i++) {
-      //     for(var j = 0; j < fieldArr[i].length; j++) {
-      //       // console.log(fieldArr[i][j]);
-      //       cell = document.getElementById("" + i + "-" + j);
-      //       cell.innerHTML = fieldArr[i][j];
-      //       cell.classList.remove("active");
-      //       if(fieldArr[i][j] == 1) {
-      //         cell.classList.add("active");
-      //       }
-      //     }
-      //   }
-      // }
-
       function _parseEvolutionStep(fieldArr){
         var canvas = document.getElementById('canvas');
         var x;
         var y;
         for(var i = 0; i < fieldArr.length; i++) {
           for(var j = 0; j < fieldArr[i].length; j++) {
-            // console.log(fieldArr[i][j]);
             var x = (i * 10);
             var y = (j * 10);
             _colorCell(canvas, x, y, "white");
@@ -140,18 +124,13 @@ const MainJS = (function() {
       }
 
       function _colorCell(canvas, x,y, color) {
-        // console.log("color is " + color);
-        // console.log(x);
-        // console.log(y);
         if (canvas.getContext) {
           var context = canvas.getContext('2d');
           if(color == "white"){
-             // console.log("colro is WHITE!");
              context.fillStyle = "#ffffff";
             context.fillRect(x+2, y+2, 8, 8);
           } else {
              context.fillStyle = "#000000";
-             // console.log("colro is BLACK!");
             context.fillRect(x+2, y+2, 8, 8);
           }
 
