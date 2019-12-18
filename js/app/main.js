@@ -37,8 +37,10 @@ const MainJS = (function() {
           xmlhttp = new XMLHttpRequest();
         }
         var step = 0;
-        var nSize = document.getElementById("size-n").value;
-        var mSize = document.getElementById("size-m").value;
+        // var nSize = document.getElementById("size-n").value;
+        // var mSize = document.getElementById("size-m").value;
+        var nSize = 50;
+        var mSize = 50;
         var cyclesCount = document.getElementById("cycles-count").value;
         var patternSelectEl = document.getElementById("pattern-select");
         var selectedOption = patternSelectEl.options[patternSelectEl.selectedIndex].value;

@@ -18,7 +18,7 @@
 </div>
 <div class="w3-row">
       <div class="w3-col m4 l3">
-    <div class="w3-col m12">
+    <!-- <div class="w3-col m12">
       <div class="w3-container fieldwrap  w3-border w3-center">
             <p>Select field size:</p>
             <p>
@@ -30,7 +30,7 @@
               <input id="size-m" class="w3-input w3-border" type="number" name="size-n" value=5>
             </p>
       </div>
-    </div>
+    </div> -->
     <div class="w3-col m12">
       <div class="w3-container fieldwrap  w3-border w3-center">
             <p>Select starting pattern:</p>
