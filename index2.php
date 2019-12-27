@@ -36,11 +36,11 @@
             <p>Select starting pattern:</p>
             <p>
                 <select id="pattern-select" class="" name="">
-                    <option value="blinker">Blinker</option>
-                    <option value="toad">Toad</option>
-                    <option value="beacon">Beacon</option>
-                    <option value="glider">Glider</option>
-                    <option value="acorn">Acorn</option>
+                    <option value="blinker" data-size="5">Blinker</option>
+                    <option value="toad" data-size="5">Toad</option>
+                    <option value="beacon" data-size="6">Beacon</option>
+                    <option value="glider" data-size="5">Glider</option>
+                    <option value="acorn" data-size="9">Acorn</option>
                 </select>
             </p>
       </div>

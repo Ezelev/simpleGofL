@@ -71,17 +71,31 @@ const MainJS = (function() {
         xhr.send(null);
       }
 
+      function _isOdd(num) { return num % 2;}
+
       function _getEvolutionHistory() {
         if (window.XMLHttpRequest) {
           xmlhttp = new XMLHttpRequest();
         }
 
-        var nSize = document.getElementById("size-n").value;
-        var mSize = document.getElementById("size-m").value;
+        var nSize = 50;
+        var mSize = 50;
+        // var nSize = document.getElementById("size-n").value;
+        // var mSize = document.getElementById("size-m").value;
         var cyclesCount = document.getElementById("cycles-count").value;
         var patternSelectEl = document.getElementById("pattern-select");
         var selectedOption = patternSelectEl.options[patternSelectEl.selectedIndex].value;
+        var paternSize = patternSelectEl.options[patternSelectEl.selectedIndex].getAttribute('data-size');
+        //
+        var fieldSize;
+        if(_isOdd(paternSize)){
+            fieldSize = parseInt(paternSize * 5) + parseInt(paternSize);
+        }
 
+        console.log(fieldSize);
+        var nSize = fieldSize;
+        var mSize = fieldSize;
+        //return false;
         var url = "test.php?pattern=" + selectedOption + "&nSize=" + nSize + "&mSize=" + mSize + "&cyclesCount=" + cyclesCount;
         var xhr = new XMLHttpRequest();
         xhr.open("GET", url, true); // async=true
