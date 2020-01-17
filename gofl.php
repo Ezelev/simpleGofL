@@ -17,20 +17,7 @@
   <h1>GofL</h1>
 </div>
 <div class="w3-row">
-      <div class="w3-col m4 l3">
-    <!-- <div class="w3-col m12">
-      <div class="w3-container fieldwrap  w3-border w3-center">
-            <p>Select field size:</p>
-            <p>
-              <label for="size-n">N:</label>
-              <input id="size-n" class="w3-input w3-border" type="number" name="size-n" value=5>
-            </p>
-            <p>
-              <label for="size-n">M:</label>
-              <input id="size-m" class="w3-input w3-border" type="number" name="size-n" value=5>
-            </p>
-      </div>
-    </div> -->
+    <div class="w3-col m4 l3">
     <div class="w3-col m12">
       <div class="w3-container fieldwrap  w3-border w3-center">
             <p>Select starting pattern:</p>
@@ -59,12 +46,6 @@
         <p><i>All steps computed on server side at once. Then render.</i></p>
       </div>
     </div>
-    <div class="w3-col m12">
-      <div class="w3-container fieldwrap  w3-border w3-center">
-            <button id="evolve-btn-ajax" class="w3-button w3-teal evolve-btn">Start (test)</button>
-            <p><i>Feature in progress. Launches evolution in ajax mode. Steps are executing and rendering one by one.</i></p>
-    </div>
-    </div>
   </div>
   <div class="w3-col m8 l9 w3-border table-wrap" style="padding-top: 20px;padding-bottom: 20px;text-align: center;">
 
@@ -74,11 +55,6 @@
 
   	</div>
 </div>
-
-
-
-
-
   <script type="text/javascript">
 
     document.addEventListener('DOMContentLoaded', function(){ // Аналог $(document).ready(function(){
